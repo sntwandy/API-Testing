@@ -1,0 +1,11 @@
+{
+  "name": "platzi-dir",
+  "version": "1.0.0",
+  "description": "Platzi Dir, GraphQL Course",
+  "main": "index.js",
+  "author": "Wandy Santana <me@sntwandy.dev>",
+  "license": "MIT",
+  "dependencies": {
+    "graphql": "^15.4.0"
+  }
+}
