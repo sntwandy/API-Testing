@@ -6,9 +6,21 @@ type Course {
   topic: String
 }
 
+type Symptoms {
+  name: [String]
+}
+
+type Sick {
+  _id: ID
+  name: String
+  symptoms: Symptoms
+}
+
 type Query {
   "get all the courses"
   getCourses: [Course]
+  "get all the sicks"
+  getSicks: [Sick]
 }
 
 # type Query {

@@ -24,8 +24,28 @@ const courses = [
   },
 ]
 
+const sicks = [
+  {
+    _id: '0956295738',
+    name: 'Headache',
+    symptoms: {
+      name: ['Fever', 'Eye Pain']
+    }
+  },
+  {
+    _id: '8565502987',
+    name: 'COVID-19',
+    symptoms: {
+      name: ['Fever', 'Eye Pain', 'Headache', 'Muscle Pain']
+    }
+  }
+]
+
 module.exports = {
   getCourses: () => {
     return courses
+  },
+  getSicks: () => {
+    return sicks
   }
 }
