@@ -1,5 +1,5 @@
 type Course {
-  _id: ID
+  _id: ID!
   title: String
   teacher: String
   description: String
@@ -11,7 +11,7 @@ type Symptoms {
 }
 
 type Sick {
-  _id: ID
+  _id: ID!
   name: String
   symptoms: Symptoms
 }
@@ -21,6 +21,8 @@ type Query {
   getCourses: [Course]
   "get all the sicks"
   getSicks: [Sick]
+  "get a course"
+  getCourse(id: ID!): Course
 }
 
 # type Query {

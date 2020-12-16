@@ -9,14 +9,14 @@ const courses = [
     topic: 'Cook',
   },
   {
-    _id: 'anyway 2345',
+    _id: 'anyway2345',
     title: 'Course for',
     teacher: 'Zeus Amenadiel',
     description: 'How to eat dinner',
     topic: 'Eat',
   },
   {
-    _id: 'anyway 2345sahjbd723',
+    _id: 'anyway2345sahjbd723',
     title: 'Course if-else',
     teacher: 'Atenas Elizabeth',
     description: 'How to eat much better',
@@ -42,10 +42,16 @@ const sicks = [
 ]
 
 module.exports = {
-  getCourses: () => {
-    return courses
-  },
-  getSicks: () => {
-    return sicks
+  Query: {
+    getCourses: () => {
+      return courses
+    },
+    getCourse: (root, args) => { // args, here the arguments are comming!!!
+      const course = courses.find(course => course._id === args.id)
+      return course
+    },
+    getSicks: () => {
+      return sicks
+    }
   }
 }
