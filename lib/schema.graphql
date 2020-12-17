@@ -23,6 +23,8 @@ type Query {
   getSicks: [Sick]
   "get a course"
   getCourse(id: ID!): Course
+  "get a sick"
+  getSick(name: String!): Sick
 }
 
 # type Query {

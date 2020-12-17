@@ -1,5 +1,6 @@
 'use strict'
 
+require('dotenv').config();
 const express = require('express')
 const { graphqlHTTP } = require('express-graphql') // graphql middleware for express
 const { makeExecutableSchema } = require('graphql-tools')
