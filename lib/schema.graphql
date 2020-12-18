@@ -27,6 +27,21 @@ type Query {
   getSick(name: String!): Sick
 }
 
+# inputs, we can define the template to insert the data to DB
+input SickInput {
+  name: String!
+  symptoms: SymptomsInput!
+}
+
+input SymptomsInput {
+  name: [String]
+}
+
+type Mutation {
+  "create a sick"
+  createSick(input: SickInput!): Sick
+}
+
 # type Query {
 #   "Return a greeting"
 #   hello: String
