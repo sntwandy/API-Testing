@@ -1,6 +1,7 @@
 'use strict'
 
-const dbConnection = require('../db');
+const dbConnection = require('../db')
+const { ObjectId } = require('mongodb')
 
 module.exports = {
   getCourses: () => {
@@ -30,6 +31,24 @@ module.exports = {
       db = await new dbConnection().connect()
       sick = await db.collection('CareYouDBTesting').findOne({name: args.name})
       return sick
+    } catch (error) {
+      console.log(error.message)
+    }
+  },
+  getUsers: async () => {
+    try {
+      const db = await new dbConnection().connect()
+      const users = await db.collection('CareYouDBTestingUsers').find().toArray()
+      return users
+    } catch (error) {
+      console.log(error.message)
+    }
+  },
+  getUser: async (root, { id }) => {
+    try {
+      const db = await new dbConnection().connect()
+      const user = await db.collection('CareYouDBTestingUsers').findOne({_id: ObjectId(id)})
+      return user
     } catch (error) {
       console.log(error.message)
     }

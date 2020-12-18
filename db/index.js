@@ -1,7 +1,7 @@
 'use strict'
 
 const { MongoClient } = require('mongodb')
-const { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT } = require('./config')
+const { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST } = require('./config')
 
 // mongodb URI to make the connection
 const MONGO_URI = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority`
@@ -13,7 +13,7 @@ class MongoLib {
     this.dbName = DB_NAME
   }
 
-  connect() {
+  connect(db) {
     if (!MongoLib.connection) {
       MongoLib.connection = new Promise((resolve, reject) => {
         this.client.connect(error => {

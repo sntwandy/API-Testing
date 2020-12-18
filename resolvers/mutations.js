@@ -19,5 +19,19 @@ module.exports = {
     } catch (error) {
       console.log(error.message)
     }
+  },
+  createUser: async (root, { input }) => {
+    const defaultValues = {
+      phoneNumber: ''
+    }
+    const newUser = Object.assign(defaultValues, input)
+    try {
+      const db = await new dbConnection().connect()
+      const user = await db.collection('CareYouDBTestingUsers').insertOne(newUser)
+      newUser._id = user.insertedId
+      return newUser
+    } catch (error) {
+      console.log(error.message)
+    }
   }
 }

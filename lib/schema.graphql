@@ -1,3 +1,5 @@
+# TYPES
+
 type Course {
   _id: ID!
   title: String
@@ -16,6 +18,18 @@ type Sick {
   symptoms: Symptoms
 }
 
+type User {
+  _id: ID!
+  name: String!
+  lastName: String!
+  email: String!
+  password: String!
+  age: Float!
+  phoneNumber: Float
+}
+
+# QUERIES
+
 type Query {
   "get all the courses"
   getCourses: [Course]
@@ -25,9 +39,13 @@ type Query {
   getCourse(id: ID!): Course
   "get a sick"
   getSick(name: String!): Sick
+  "get all the users"
+  getUsers: [User]
+  "get a user"
+  getUser(id: ID!): User
 }
 
-# inputs, we can define the template to insert the data to DB
+# INPUTS, we can define the template to insert the data to DB
 input SickInput {
   name: String!
   symptoms: SymptomsInput!
@@ -37,9 +55,21 @@ input SymptomsInput {
   name: [String]
 }
 
+input UserInput {
+  name: String!
+  lastName: String!
+  email: String!
+  password: String!
+  age: Float!
+  phoneNumber: Float
+}
+
+# MUTATIONS
 type Mutation {
   "create a sick"
   createSick(input: SickInput!): Sick
+  "create a user"
+  createUser(input: UserInput!): User
 }
 
 # type Query {
