@@ -28,6 +28,15 @@ type User {
   phoneNumber: Float
 }
 
+type sickDiagnos {
+  sickName: String
+  sickProbability: Int
+}
+
+type diagnostic {
+  sicks: [sickDiagnos]
+}
+
 # QUERIES
 
 type Query {
@@ -43,6 +52,8 @@ type Query {
   getUsers: [User]
   "get a user"
   getUser(id: ID!): User
+  "get diagnostic"
+  getDiagnostic: diagnostic
 }
 
 # INPUTS, we can define the template to insert the data to DB

@@ -5,7 +5,7 @@ const dbConnection = require('../db')
 module.exports = {
   createSick: async (root, { input }) => {
     const defaultsValues = {
-      name: '',
+      name: ''
     }
 
     const newSick = Object.assign(defaultsValues, input)

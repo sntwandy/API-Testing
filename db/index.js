@@ -8,27 +8,26 @@ const MONGO_URI = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}
 
 // build mongo library to make the connection with a singleton structure
 class MongoLib {
-  constructor() {
+  constructor () {
     this.client = new MongoClient(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     this.dbName = DB_NAME
   }
 
-  connect(db) {
+  connect (db) {
     if (!MongoLib.connection) {
       MongoLib.connection = new Promise((resolve, reject) => {
         this.client.connect(error => {
           if (error) {
             reject(error.message)
           } else {
-             console.log('Connected successfully to MongoDB')
-             resolve(this.client.db(this.dbName))
+            console.log('Connected successfully to MongoDB')
+            resolve(this.client.db(this.dbName))
           }
         })
       })
     }
-    return MongoLib.connection;
+    return MongoLib.connection
   }
-
 }
 
 module.exports = MongoLib
